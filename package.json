@@ -1,6 +1,6 @@
 {
   "name": "coffeelint-no-long-functions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Prohibit long functions",
   "main": "index.js",
   "scripts": {

@@ -23,8 +23,6 @@ module.exports = class NoLongMethods
     @lintNode code.body, api
 
   lintNode: (node, api, name = 'Anon') ->
-    {constructor: {name}, locationData: {first_line, last_line}} = node
-    console.log 'node is', name, first_line + 1, last_line + 1
     node.traverseChildren false, (child) =>
       switch child.constructor.name
         when 'Code' then @processFunction child, api, name

@@ -15,19 +15,19 @@ module.exports = class NoLongMethods
 
     if lastLine - firstLine > max
       @errors.push api.createError
-        context: code.variable
+        context: name
         message: "Functions must not be longer than #{ @rule.value } lines"
         lineNumber: firstLine
         lineNumberEnd: lastLine
 
     @lintNode code.body, api
 
-  lintNode: (node, api, name = 'Anon function') ->
+  lintNode: (node, api, name = 'Anon') ->
+    {constructor: {name}, locationData: {first_line, last_line}} = node
+    console.log 'node is', name, first_line + 1, last_line + 1
     node.traverseChildren false, (child) =>
       switch child.constructor.name
         when 'Code' then @processFunction child, api, name
-        when 'Assign' then @lintNode child.value, api, child.variable
-        when 'Block', 'Class' then @lintNode child, api
-    return
+    return # Errors are listed in @errors.
 
-  lintAST: (node, api) -> @lintNode node, api
+  lintAST: (root, api) -> @lintNode root, api

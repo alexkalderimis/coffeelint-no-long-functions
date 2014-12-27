@@ -10,7 +10,7 @@
     "compile": "coffee -c index.coffee"
   },
   "keywords": [
-    "coffeelint"
+    "coffeelint", "coffeelintrule"
   ],
   "author": "Alex Kalderimis",
   "license": "MIT",

@@ -1,0 +1,25 @@
+{
+  "name": "coffeelint-no-long-functions",
+  "version": "1.0.0",
+  "description": "Prohibit long functions",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run compile",
+    "test": "mocha --require should --compilers coffee:coffee-script/register",
+    "prepublish": "npm test",
+    "compile": "coffee -c index.coffee"
+  },
+  "keywords": [
+    "coffeelint"
+  ],
+  "author": "Alex Kalderimis",
+  "license": "MIT",
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "mocha": "^2.1.0",
+    "should": "^4.4.2"
+  },
+  "dependencies": {
+    "coffeelint": "^1.8.1"
+  }
+}

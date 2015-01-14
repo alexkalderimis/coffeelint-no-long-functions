@@ -16,7 +16,7 @@ module.exports = class NoLongMethods
     if lastLine - firstLine > max
       @errors.push api.createError
         context: name
-        message: "Functions must not be longer than #{ @rule.value } lines"
+        message: "Functions must not be longer than #{max} lines"
         lineNumber: firstLine
         lineNumberEnd: lastLine
 
